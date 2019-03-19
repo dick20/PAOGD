@@ -47,14 +47,14 @@ Blender2.8 beta
 + 利用extrude将上移该平面
 + 新增一个平面，后面用来做箱顶弹出的动画
 
-![1552707364555](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1552707364555.png)
+![1552707364555](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img1.png)
 
 
 
 + r 可以进行旋转，或者调整右边面板的旋转角度
 + g键移动调整位置
 
-![1552981119672](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1552981119672.png)
+![1552981119672](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img2.png)
 
 
 
@@ -64,7 +64,7 @@ Blender2.8 beta
 
 + 拖动箱子到合适的位置
 
-![1552707596659](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1552707596659.png)
+![1552707596659](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img3.png)
 
 ## 三. 制作一个球体
 
@@ -72,7 +72,7 @@ Blender2.8 beta
 + 并调整至合适的大小
 + 然后将球体放入箱子
 
-![1552707584427](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1552707584427.png)
+![1552707584427](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img4.png)
 
 
 
@@ -95,7 +95,7 @@ Blender2.8 beta
 
 在时间轴上选择一个合适的位置插入关键帧，在该帧中调整小球的位置
 
-![1553003520777](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1553003520777.png)
+![1553003520777](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img5.png)
 
 
 
@@ -103,7 +103,7 @@ Blender2.8 beta
 
 这是小球在最高峰时候的位置，添加在时间轴20上
 
-![1553003796120](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1553003796120.png)
+![1553003796120](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img6.png)
 
 
 
@@ -115,7 +115,7 @@ Blender2.8 beta
 
 这里用到的是**曲线编辑器**，可以通过拖动来改变小球的运动快慢角度之类
 
-![12](C:\Users\asus\Desktop\12.png)
+![12](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img7.png)
 
 ## 五. 为物品添加一个纹理（加分项）
 
@@ -123,7 +123,7 @@ Blender2.8 beta
 
 然后，在右侧中选择材质框，这里可以调整物品的颜色，透明度等等，这里我简单的改变一下颜色与亮度，更多更难的功能还待继续发掘。
 
-![1553004157561](C:\Users\asus\AppData\Roaming\Typora\typora-user-images\1553004157561.png)
+![1553004157561](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/img8.png)
 
 
 
@@ -131,7 +131,7 @@ Blender2.8 beta
 
 最后完成的效果如图所示：
 
-![result](C:\Users\asus\Desktop\result.gif)
+![result](https://gitee.com/dic0k/PAOGD_HW1/raw/master/report/16340132LiangYingLin/images/result.gif)
 
 
 
