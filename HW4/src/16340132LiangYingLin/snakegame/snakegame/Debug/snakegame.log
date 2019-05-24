@@ -1,0 +1,5 @@
+﻿  Snake.cpp
+c:\users\asus\desktop\hw4\src\16340132liangyinglin\snakegame\snakegame\src\object\snake.cpp(21): warning C4018: “<=”: 有符号/无符号不匹配
+c:\users\asus\desktop\hw4\src\16340132liangyinglin\snakegame\snakegame\src\object\snake.cpp(91): warning C4018: “<=”: 有符号/无符号不匹配
+c:\users\asus\desktop\hw4\src\16340132liangyinglin\snakegame\snakegame\src\object\snake.cpp(136): warning C4018: “<=”: 有符号/无符号不匹配
+  snakegame.vcxproj -> C:\Users\asus\Desktop\hw4\src\16340132LiangYingLin\snakegame\Debug\snakegame.exe
