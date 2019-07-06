@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{3341d2d7-4cd6-4cf1-8f2a-bf5efecd40de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{c6c90c95-59ed-4603-8b6d-bbb1caf1b439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{9602db49-e04b-4de0-8f8b-6d70b04df286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\resource_manager">
+      <UniqueIdentifier>{8177ab74-6ca3-4086-9dca-7ea2cae4e971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\shaders">
+      <UniqueIdentifier>{ec87e189-ea3e-4351-95cf-0340ee53efa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\shader">
+      <UniqueIdentifier>{06a5cd4c-2e37-4709-b26d-8c45b38af276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\sprite_renderer">
+      <UniqueIdentifier>{eba24020-35c4-44be-b956-d27d416a476c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\model">
+      <UniqueIdentifier>{3224c50f-2203-4f70-bb1f-3bdb4fb9845c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\texture">
+      <UniqueIdentifier>{bf4c16e3-6aba-4823-9ed9-1272c5cdce0b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\GameObject.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\SnakeObject.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\resource_manager\resource_manager.cpp">
+      <Filter>Game\resource_manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\shader\shader.cpp">
+      <Filter>Game\shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\sprite_renderer\sprite_renderer.cpp">
+      <Filter>Game\sprite_renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\model\model.cpp">
+      <Filter>Game\model</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\texture\texture.cpp">
+      <Filter>Game\texture</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Object\GameObject.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\SnakeObject.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\resource_manager\resource_manager.h">
+      <Filter>Game\resource_manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\shader\shader.h">
+      <Filter>Game\shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\sprite_renderer\sprite_renderer.h">
+      <Filter>Game\sprite_renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\model\mesh.h">
+      <Filter>Game\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\model\model.h">
+      <Filter>Game\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\texture\texture.h">
+      <Filter>Game\texture</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resourses\sz1.png">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Game\shaders\color.frag">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\color.vs">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\lightObject.frag">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\lightObject.vs">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\sprite.frag">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\sprite.vs">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\text.frag">
+      <Filter>Game\shaders</Filter>
+    </None>
+    <None Include="Game\shaders\text.vs">
+      <Filter>Game\shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

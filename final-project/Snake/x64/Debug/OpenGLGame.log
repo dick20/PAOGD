@@ -1,0 +1,19 @@
+﻿  model.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\model\model.h(4): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  GameObject.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\object\gameobject.h(4): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  SnakeObject.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\object\gameobject.h(4): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  Game.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\game.h(4): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  resource_manager.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\resource_manager\resource_manager.h(8): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  shader.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\shader\shader.h(6): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  sprite_renderer.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\sprite_renderer\sprite_renderer.h(4): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  texture.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\game\texture\texture.h(5): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  main.cpp
+f:\study\大三\下\paogd\paogd_hw4\src\16340017chenfan\snake\main.cpp(1): fatal error C1083: 无法打开包括文件: “glad/glad.h”: No such file or directory
+  正在生成代码...
