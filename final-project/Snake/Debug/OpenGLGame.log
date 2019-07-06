@@ -1,5 +1,20 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(OpenGLproject.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  model.cpp
+  GameObject.cpp
+  SnakeObject.cpp
+c:\users\asus\desktop\paogd\final-project\snake\game\object\snakeobject.cpp(40): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\asus\desktop\paogd\final-project\snake\game\object\snakeobject.cpp(79): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\asus\desktop\paogd\final-project\snake\game\object\snakeobject.cpp(117): warning C4018: “<”: 有符号/无符号不匹配
   Game.cpp
-c:\users\asus\desktop\动画原理与网络游戏设计\期末项目\snake\game\game.cpp(149): warning C4018: “<”: 有符号/无符号不匹配
-c:\users\asus\desktop\动画原理与网络游戏设计\期末项目\snake\game\game.cpp(170): warning C4018: “<”: 有符号/无符号不匹配
-  OpenGLGame.vcxproj -> C:\Users\asus\Desktop\动画原理与网络游戏设计\期末项目\Snake\Debug\OpenGLGame.exe
+c:\users\asus\desktop\paogd\final-project\snake\game\game.cpp(149): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\asus\desktop\paogd\final-project\snake\game\game.cpp(170): warning C4018: “<”: 有符号/无符号不匹配
+  resource_manager.cpp
+  shader.cpp
+  sprite_renderer.cpp
+  texture.cpp
+  main.cpp
+c:\users\asus\desktop\paogd\final-project\snake\main.cpp(75): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  正在生成代码...
+  glad.c
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  OpenGLGame.vcxproj -> C:\Users\asus\Desktop\PAOGD\final-project\Snake\Debug\OpenGLGame.exe
