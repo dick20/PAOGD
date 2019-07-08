@@ -27,12 +27,16 @@ void SnakeGame::Init()
 	// rand number
 	srand((int)time(0));
 	// init snake object
-	snakeObj = new SnakeObject();
+	snakeObj1 = new SnakeObject(0,0);
+	snakeObj2 = new SnakeObject(10,5);
 	// right
-	direction = 3;
-	snakeObj->setDirection(direction);
+	direction1 = 3;
+	direction2 = 3;
+	snakeObj1->setDirection(direction1);
+	snakeObj2->setDirection(direction2);
 	// init bounds
-	snakeObj->setBounds(-15.0f, 11.0f, -21.0f, 21.0f);
+	snakeObj1->setBounds(-15.0f, 11.0f, -21.0f, 21.0f);
+	snakeObj2->setBounds(-15.0f, 11.0f, -21.0f, 21.0f);
 
 	boundsBottom = -10.0f;
 	boundsTop = 10.0f;
@@ -43,10 +47,10 @@ void SnakeGame::Init()
 	lightPos = glm::vec3(5.0f, 30.0f, 5.0f);
 	viewPos = glm::vec3(0.0f, 40.0f, 30.0f);
 
-	currentLength = snakeObj->getLength();
+	currentLength = snakeObj1->getLength();
 	foodPos = glm::vec2(0.0f);
-	stonePos = glm::vec2(0.0f);
-	hasInput = false;
+	hasInput1 = false;
+	hasInput2 = false;
 
 	// Load shaders
 	ResourceManager::LoadShader("Game/shaders/sprite.vs", "Game/shaders/sprite.frag", nullptr, "sprite");
@@ -84,62 +88,94 @@ void SnakeGame::Init()
 	Renderer->initRenderData();
 	lightRenderer = new SpriteRenderer(lightShader);
 
-	createFood();
+	// createFood();
 	createStone();
 }
 
-void SnakeGame::Update(GLfloat dt)
+void SnakeGame::Update()
 {
-	if (this->State == GAME_ACTIVE) {
-		snakeObj->Move(dt);
+	if (this->State == GAME_ACTIVE && hasInput1) {
+		snakeObj1->Move();
+	}
+	else if (this->State == GAME_ACTIVE && hasInput2) {
+		snakeObj2->Move();
 	}
 
-	if (snakeObj->getLength() > currentLength) {
-		currentLength = snakeObj->getLength();
-		createFood();
+	if (snakeObj1->getLength() > currentLength) {
+		currentLength = snakeObj1->getLength();
+		// createFood();
 	}
 
-	if (snakeObj->isDead()) {
+	if (snakeObj1->isDead()) {
 		this->State = GAME_DEATH;
 	}
 }
 
 
-void SnakeGame::ProcessInput(int frame_count)
+bool SnakeGame::ProcessInput(int frame_count)
 {
 	if (frame_count == 0) {
-		hasInput = false;
+		hasInput1 = false;
+		hasInput2 = false;
 	}
 
-	if (this->State == GAME_ACTIVE && !hasInput) {
-
-		if (this->Keys[GLFW_KEY_W] && !hasInput) {
-			if (direction == 1) return;
-			direction = 0;
-			hasInput = true;
+	if (this->State == GAME_ACTIVE && !hasInput1) {
+		// 坦克可以四个方向移动
+		if (this->Keys[GLFW_KEY_W] && !hasInput1) {
+			// if (direction == 1) return false;
+			direction1 = 0;
+			hasInput1 = true;
 		}
-		if (this->Keys[GLFW_KEY_S] && !hasInput) {
-			if (direction == 0) return;
-			direction = 1;
-			hasInput = true;
+		if (this->Keys[GLFW_KEY_S] && !hasInput1) {
+			// if (direction == 0) return false;
+			direction1 = 1;
+			hasInput1 = true;
 		}
-		if (this->Keys[GLFW_KEY_A] && !hasInput) {
-			if (direction == 3) return;
-			direction = 2;
-			hasInput = true;
+		if (this->Keys[GLFW_KEY_A] && !hasInput1) {
+			// if (direction == 3) return false;
+			direction1 = 2;
+			hasInput1 = true;
 		}
-		if (this->Keys[GLFW_KEY_D] && !hasInput) {
-			if (direction == 2) return;
-			direction = 3;
-			hasInput = true;
+		if (this->Keys[GLFW_KEY_D] && !hasInput1) {
+			// if (direction == 2) return false;
+			direction1 = 3;
+			hasInput1 = true;
 		}
 
 	}
-	snakeObj->setDirection(direction);
+	snakeObj1->setDirection(direction1);
+
+	// 坦克2
+	if (this->State == GAME_ACTIVE && !hasInput2) {
+		// 坦克可以四个方向移动
+		if (this->Keys[GLFW_KEY_I] && !hasInput2) {
+			// if (direction == 1) return false;
+			direction2 = 0;
+			hasInput2 = true;
+		}
+		if (this->Keys[GLFW_KEY_K] && !hasInput2) {
+			// if (direction == 0) return false;
+			direction2 = 1;
+			hasInput2 = true;
+		}
+		if (this->Keys[GLFW_KEY_J] && !hasInput2) {
+			// if (direction == 3) return false;
+			direction2 = 2;
+			hasInput2 = true;
+		}
+		if (this->Keys[GLFW_KEY_L] && !hasInput2) {
+			// if (direction == 2) return false;
+			direction2 = 3;
+			hasInput2 = true;
+		}
+
+	}
+	snakeObj2->setDirection(direction2);
+	return hasInput1 || hasInput2;
 }
 
 void SnakeGame::createFood() {
-	deque<snake_node> nodes = snakeObj->getNextNodes();
+	deque<snake_node> nodes = snakeObj1->getNextNodes();
 	bool goodPos = 0;
 	glm::vec2 p = glm::vec2(0.0f);
 
@@ -156,34 +192,39 @@ void SnakeGame::createFood() {
 	}
 
 	foodPos = p;
-	snakeObj->setFoodPos(p);
+	snakeObj1->setFoodPos(p);
 }
 
 void SnakeGame::createStone() {
-	deque<snake_node> nodes = snakeObj->getNextNodes();
+	deque<snake_node> nodes1 = snakeObj1->getNextNodes();
+	deque<snake_node> nodes2 = snakeObj1->getNextNodes();
 	bool goodPos = 0;
-	glm::vec2 p = glm::vec2(0.0f);
 
-	while (!goodPos) {
+	int stoneCount = 15;
+	for (int i = 0; i < stoneCount; i++) {
+		glm::vec2 p;
 		int x = rand() % 41 - 20;
 		int z = rand() % 21 - 10;
-		for (int i = 0; i < nodes.size(); i++) {
-			if (x != int(nodes.at(i).x) && z != int(nodes.at(i).z)) {
+		// 暂时不判断重复
+
+		/*for (int i = 0; i < nodes1.size(); i++) {
+			if ((x != int(nodes1.at(i).x) && z != int(nodes1.at(i).z)) &&
+				(x != int(nodes2.at(i).x) && z != int(nodes2.at(i).z))) {
 				goodPos = 1;
 				break;
 			}
-		}
+		}*/
 		p = glm::vec2(x, z);
+		stonePosVector.push_back(p);
 	}
-
-	stonePos = p;
-	snakeObj->setStonePos(p);
+	
+	snakeObj1->setStonePos(stonePosVector);
 }
 
 void SnakeGame::Render(int frame_count)
 {
 	// get models
-	Model model_food = ResourceManager::GetModel("food");
+	// Model model_food = ResourceManager::GetModel("food");
 	Model model_body = ResourceManager::GetModel("body");
 	Model model_head = ResourceManager::GetModel("head");
 	Model model_floor = ResourceManager::GetModel("floor");
@@ -193,11 +234,15 @@ void SnakeGame::Render(int frame_count)
 	lightRenderer->DrawSpriteModel(model_floor, glm::vec3(0.0, -10.0, -5.0), glm::vec3(1.1f), glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	// render snake
-	snakeObj->DrawModel(*lightRenderer, model_head, model_body, frame_count);
+	snakeObj1->DrawModel(*lightRenderer, model_head, model_body, frame_count);
+	snakeObj2->DrawModel(*lightRenderer, model_head, model_body, frame_count);
 
 	// render food
-	lightRenderer->DrawSpriteModel(model_food, glm::vec3(foodPos.x, 1.0, foodPos.y), glm::vec3(0.2f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	// lightRenderer->DrawSpriteModel(model_food, glm::vec3(foodPos.x, 1.0, foodPos.y), glm::vec3(0.2f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	// render stone
-	lightRenderer->DrawSpriteModel(model_stone, glm::vec3(stonePos.x, 1.0, stonePos.y), glm::vec3(0.01f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	for (int i = 0; i < stonePosVector.size(); i++) {
+		// cout << stonePosVector[i].x << endl;
+		lightRenderer->DrawSpriteModel(model_stone, glm::vec3(stonePosVector[i].x, 1.0, stonePosVector[i].y), glm::vec3(0.01f), glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	}
 }

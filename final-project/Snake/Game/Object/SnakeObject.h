@@ -9,12 +9,15 @@
 #include "../sprite_renderer/sprite_renderer.h"
 
 #include <deque>
+#include <vector>
 using namespace std;
 
 struct snake_node {
 	float x;
 	float z;
 	int direction;
+	snake_node() { x = 0; z = 0; direction = 0; }
+	snake_node(float x1, float x2, int dir2) :x(x1), z(x2), direction(dir2){}
 };
 
 class SnakeObject : public GameObject {
@@ -25,18 +28,18 @@ private:
 	int direction;
 	GLfloat rotate4[4] = { glm::radians(180.0f), glm::radians(0.0f), glm::radians(-90.0f), glm::radians(90.0f) };
 	glm::vec2 foodPos;
-	glm::vec2 stonePos;
+	vector<glm::vec2> stonePosVector;
 	bool dead;
 	float bounds[4];
 public:
-	SnakeObject();
+	SnakeObject(int x, int z);
 	void setDirection(int d);
-	void Move(GLfloat dt);	//move to direction
+	void Move();	//move to direction
 	int getLength();
 	void Draw(SpriteRenderer &renderer, Texture2D texture_body, Texture2D texture_head);
 	void DrawModel(SpriteRenderer &renderer, Model model_head, Model model_body, int frame_count);
 	void setFoodPos(glm::vec2 p);
-	void setStonePos(glm::vec2 p);
+	void setStonePos(vector<glm::vec2> p);
 	deque<snake_node> getNextNodes();
 	bool isDead();
 	void setBounds(float top, float bottom, float left, float right);

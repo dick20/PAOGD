@@ -1,16 +1,15 @@
 #include "SnakeObject.h"
 
-SnakeObject::SnakeObject() {
+SnakeObject::SnakeObject(int x, int z) {
 	speed = 1.0f;
 	foodPos = glm::vec2(0.0f);
-	stonePos = glm::vec2(0.0f);
 	dead = false;
 
-	for (float i = 0.0f; i <= 6.0f; i += 1.0f) {
-		snake_node node;
-		node.x = i;
-		node.z = 0.0f;
-		node.direction = 3;
+	for (float i = 0.0f; i <= 1.0f; i += 1.0f) {
+		snake_node node(i+x, z, 3);
+		//node.x = i;
+		//node.z = 0.0f;
+		//node.direction = 3;
 		nodes.push_front(node);
 		next_nodes.push_front(node);
 	}
@@ -24,25 +23,24 @@ deque<snake_node> SnakeObject::getNextNodes() {
 	return next_nodes;
 }
 
-void SnakeObject::Move(GLfloat dt) {
+void SnakeObject::Move() {
 	nodes = next_nodes;
 
-	if (nodes.at(0).x == foodPos.x && nodes.at(0).z == foodPos.y) {
+	// Ì¹¿ËÅö×²¼ì²â
+	
+
+	/*if (nodes.at(0).x == foodPos.x && nodes.at(0).z == foodPos.y) {
 		next_nodes.push_back(nodes.at(nodes.size() - 1));
 		nodes.push_back(nodes.at(nodes.size() - 1));
 	}
 
-	if (nodes.at(0).x == stonePos.x && nodes.at(0).z == stonePos.y) {
-		dead = true;
-		return;
-	}
 
 	for (int i = 1; i < nodes.size(); i++) {
 		if (nodes.at(0).x == nodes.at(i).x && nodes.at(0).z == nodes.at(i).z) {
 			dead = true;
 			return;
 		}
-	}
+	}*/
 
 	next_nodes.clear();
 
@@ -66,11 +64,29 @@ void SnakeObject::Move(GLfloat dt) {
 	default:
 		break;
 	}
+	// ÉèÖÃÌ¹¿Ë²»´©Ç½
+	z = z > bounds[1] ? bounds[1]-1 : z;
+	z = z < bounds[0] ? bounds[0]+1 : z;
+	x = x > bounds[3] ? bounds[3]-1 : x;
+	x = x < bounds[2] ? bounds[2]+1 : x;
 
-	z = z > bounds[1] ? bounds[0] : z;
-	z = z < bounds[0] ? bounds[1] : z;
-	x = x > bounds[3] ? bounds[2] : x;
-	x = x < bounds[2] ? bounds[3] : x;
+	// Ì¹¿ËÓöµ½Ç½
+	for (int i = 0; i < stonePosVector.size(); i++) {
+		if (nodes.at(0).x == stonePosVector[i].x && nodes.at(0).z == stonePosVector[i].y) {
+			if (direction == 0) {
+				z = stonePosVector[i].y + 1;
+			}
+			else if (direction == 1) {
+				z = stonePosVector[i].y - 1;
+			}
+			else if (direction == 2) {
+				x = stonePosVector[i].x + 1;
+			}
+			else if (direction == 3) {
+				x = stonePosVector[i].x - 1;
+			}
+		}
+	}
 
 	new_head.direction = direction;
 	new_head.x = x;
@@ -88,8 +104,8 @@ void SnakeObject::setFoodPos(glm::vec2 p) {
 	foodPos = p;
 }
 
-void SnakeObject::setStonePos(glm::vec2 p) {
-	stonePos = p;
+void SnakeObject::setStonePos(vector<glm::vec2> p) {
+	stonePosVector = p;
 }
 
 bool SnakeObject::isDead() {

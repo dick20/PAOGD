@@ -79,17 +79,19 @@ int main()
 		glfwPollEvents();
 
 		// Manage user input
-		Snake.ProcessInput(frame_count);
+		bool hasInput = Snake.ProcessInput(frame_count);
 		frame_count++;
 		if (frame_count >= 35) {
-			Snake.Update(deltaTime);
 			frame_count = 0;
+			if (hasInput) {
+				Snake.Update();
+			}
 		}
 		
 		// Render
 		glClearColor(0.2f, 0.2f, 0.25f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		Snake.Render(frame_count);
+		Snake.Render(2);
 
 		glfwSwapBuffers(window);
 
